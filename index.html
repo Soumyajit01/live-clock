@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE CLOCK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: auto;
+            width: 50vw;
+            background: blue;
+            border: 5px solid black;
+            border-radius: 20px;
+        }
+        .today{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .today li,.time li{
+            list-style: none;
+            padding: 8px;
+        } 
+        .text-styling{
+            font-family: 'Open Sans', sans-serif;
+            font-size: 10vh;
+            color: white;
+        }
+        .time{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="today text-styling">
+            <li id="month_today"></li>
+            <li id="date_today"></li>
+            <li id="year_today"></li>,
+            <li id="day_today"></li>
+        </ul>
+        <hr>
+        <ul class="time text-styling">
+            <li id="hours_now"></li> :
+            <li id="minutes_now"></li> :
+            <li id="seconds_now"></li>
+        </ul>
+    </div>
+    <script>
+        months = ["January","February", "March", "April", "May","June","July","August","September", "October", "November","December"]
+        days = ["Sunday", "Monday","Tuesday","Wednesday", "Thursday","Friday","Saturday"]
+
+        let a = new Date()
+        month_today.innerHTML = months[a.getMonth()]
+        date_today.innerHTML = a.getDate()
+        year_today.innerHTML = a.getFullYear()
+        day_today.innerHTML = days[a.getDay()]
+        
+        let h = a.getHours()
+        let m = a.getMinutes()
+        let s = a.getSeconds()
+        const setTimeInHTML = ()=>{
+            let a = new Date()
+            hours_now.innerHTML = a.getHours()
+            minutes_now.innerHTML = a.getMinutes()
+            seconds_now.innerHTML = a.getSeconds()
+        }
+        setInterval(setTimeInHTML, 1000)
+    </script>
+</body>
+
+</html>
