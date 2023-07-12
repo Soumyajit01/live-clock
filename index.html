@@ -16,9 +16,16 @@
         .box{
             margin: auto;
             width: 50vw;
-            background: blue;
-            border: 5px solid black;
+            background: black;
             border-radius: 20px;
+            box-shadow: 0px 0px 20px 9px #2f62e2
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            background: black;
+            align-items: center;
+            justify-content: center;
         }
         .today{
             display: flex;
@@ -27,11 +34,13 @@
         }
         .today li,.time li{
             list-style: none;
-            padding: 8px;
+        color: #8bf2fb;
+        text-shadow: -3px 2px 4px red;
+        padding: 1vw;
         } 
         .text-styling{
             font-family: 'Open Sans', sans-serif;
-            font-size: 10vh;
+            font-size: 3vw;
             color: white;
         }
         .time{
@@ -39,23 +48,27 @@
             align-items: center;
             justify-content: center;
         }
+        #chatling-open-chat-icon{
+            box-shadow: 0px 0px 20px 9px #2f62e2
+        }
     </style>
 </head>
 
 <body>
-    <div class="box">
-        <ul class="today text-styling">
-            <li id="month_today"></li>
-            <li id="date_today"></li>
-            <li id="year_today"></li>,
-            <li id="day_today"></li>
-        </ul>
-        <hr>
-        <ul class="time text-styling">
-            <li id="hours_now"></li> :
-            <li id="minutes_now"></li> :
-            <li id="seconds_now"></li>
-        </ul>
+        <div class="box">
+            <ul class="today text-styling">
+                <li id="month_today"></li>
+                <li id="date_today"></li>
+                <li id="year_today"></li>,
+                <li id="day_today"></li>
+            </ul>
+            <hr>
+            <ul class="time text-styling">
+                <li id="hours_now"></li> :
+                <li id="minutes_now"></li> :
+                <li id="seconds_now"></li>
+            </ul>
+
     </div>
     <script async data-id="4893868228" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
     <script>
@@ -68,11 +81,13 @@
             date_today.innerHTML = a.getDate()
             year_today.innerHTML = a.getFullYear()
             day_today.innerHTML = days[a.getDay()]
+            let fullDate = a.getDate() +a.getFullYear()+days[a.getDay()]
+            // console.log(fullDate)
             hours_now.innerHTML = a.getHours()
             minutes_now.innerHTML = a.getMinutes()
             seconds_now.innerHTML = a.getSeconds()
         }
-        setInterval(setDateTimeInHTML, 1000)
+        setInterval(setDateTimeInHTML, 1)
     </script>
 </body>
 
